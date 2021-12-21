@@ -27,10 +27,10 @@ Project File Date:  11/14/2021
 <h2>Output:</h2>
 Rebuild target 'Template'
 compiling main.c...
-pid.h(7): warning:  #1295-D: Deprecated declaration pid_realise - give arg types
-  float pid_realise();//实现PID算法   
-pid.h(19): warning:  #1-D: last line of file ends without a newline
+pid.h(94): warning:  #1-D: last line of file ends without a newline
   #endif
+main.c(15): warning:  #223-D: function "pid_init" declared implicitly
+        pid_init(set_temperature);
 main.c(20): warning:  #223-D: function "TIM3_Int_Init" declared implicitly
         TIM3_Int_Init(500-1,8400-1);//pid timer
 main.c(23): warning:  #223-D: function "DS18B20_Init" declared implicitly
@@ -81,38 +81,54 @@ compiling stm32f4xx_wwdg.c...
 compiling delay.c...
 compiling sys.c...
 compiling usart.c...
-..\USER\pid.h(7): warning:  #1295-D: Deprecated declaration pid_realise - give arg types
-  float pid_realise();//实现PID算法   
-..\USER\pid.h(19): warning:  #1-D: last line of file ends without a newline
+..\USER\pid.h(94): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\SYSTEM\usart\usart.c(141): warning:  #223-D: function "delay_ms" declared implicitly
                 delay_ms(5);
 ..\SYSTEM\usart\usart.c(162): warning:  #1035-D: single-precision operand implicitly converted to double-precision
                         set_temperature+=0.5;
+..\SYSTEM\usart\usart.c(163): warning:  #223-D: function "pid_init" declared implicitly
+                        pid_init(set_temperature);
 ..\SYSTEM\usart\usart.c(165): warning:  #1035-D: single-precision operand implicitly converted to double-precision
                         set_temperature-=0.5;
-..\SYSTEM\usart\usart.c: 5 warnings, 0 errors
+..\SYSTEM\usart\usart.c(166): warning:  #223-D: function "pid_init" declared implicitly
+                        pid_init(set_temperature);
+..\SYSTEM\usart\usart.c: 6 warnings, 0 errors
 compiling ds18b20.c...
 compiling pwm.c...
 compiling lcd.c...
 compiling timer.c...
-..\USER\pid.h(7): warning:  #1295-D: Deprecated declaration pid_realise - give arg types
-  float pid_realise();//实现PID算法   
-..\USER\pid.h(19): warning:  #1-D: last line of file ends without a newline
+..\USER\pid.h(94): warning:  #1-D: last line of file ends without a newline
   #endif
+..\HARDWARE\time3\timer.c(51): warning:  #223-D: function "pid_realise" declared implicitly
+                TIM_SetCompare1(TIM14,pid_realise());
 ..\HARDWARE\time3\timer.c: 2 warnings, 0 errors
 compiling pid.c...
-pid.h(7): warning:  #1295-D: Deprecated declaration pid_realise - give arg types
-  float pid_realise();//实现PID算法   
-pid.h(19): warning:  #1-D: last line of file ends without a newline
+pid.h(94): warning:  #1-D: last line of file ends without a newline
   #endif
-pid.c(38): warning:  #1-D: last line of file ends without a newline
+pid.c(57): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    qValue[0] = 6.0 * thisError / (vPID->maximum - vPID->minimum);
+pid.c(59): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    qValue[1] = 3.0 * deltaError / (vPID->maximum - vPID->minimum);
+pid.c(75): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      ms[1] = 0.5 * qv + 3.0; //y=0.5x+3.0
+pid.c(88): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      ms[1] = 0.5 * qv + 2.0; //y=0.5x+2.0
+pid.c(101): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      ms[1] = 0.5 * qv + 1.0; //y=0.5x+1.0
+pid.c(114): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      ms[1] = 0.5 * qv; //y=0.5x
+pid.c(127): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      ms[1] = 0.5 * qv - 1.0; //y=0.5x-1.0
+pid.c(140): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      ms[1] = 0.5 * qv - 2.0; //y=0.5x-2.0
+pid.c(187): warning:  #1-D: last line of file ends without a newline
   }
-pid.c: 3 warnings, 0 errors
+pid.c: 10 warnings, 0 errors
 linking...
-Program Size: Code=33956 RO-data=6572 RW-data=60 ZI-data=1684  
+Program Size: Code=36544 RO-data=7160 RW-data=64 ZI-data=1736  
 FromELF: creating hex file...
-"..\OBJ\Template.axf" - 0 Error(s), 16 Warning(s).
+"..\OBJ\Template.axf" - 0 Error(s), 24 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\86156\Desktop\STUDY\automation\STM32\��\MyTemplate2\USER\RTE

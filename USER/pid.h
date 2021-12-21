@@ -40,11 +40,7 @@ typedef struct
 
   float preerror;               /*前两拍偏差*/
 
-  float deadband;               /*死区*/
-
   float out;                    /*输出值*/
-
-  float result;                 /*物理量输出值*/
 
   float maximum;                /*输出值的上限*/
 

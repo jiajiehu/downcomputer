@@ -12,10 +12,18 @@ void pid_init(float set_temperatrue)
   pid.error = 0.0;
   pid.lasterror = 0.0;
   pid.preerror = 0.0;
-  //可调节PID 参数。使跟踪曲线慢慢接近阶跃函数200.0 //
   pid.kp = KP;
   pid.ki = KI;
   pid.kd = KD;
+  pid.maximum=10;
+  pid.minimum=-20;
+  pid.maxdKp=200;
+  pid.mindKd=-200;
+  pid.maxdKi=10;
+  pid.mindKi=-10;
+  pid.maxdKd=50;
+  pid.mindKd=-50;
+  pid.qKp=pid.qKd=pid.qKi=1;
 }
 
 float pid_realise() //实现pid
